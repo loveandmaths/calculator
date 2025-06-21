@@ -1,16 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { CalculateInterest } from '@/lib/calculateInterest';
 
 export default function Home() {
   const [principal, setPrincipal] = useState(0);
-  const [rate, setRate] = useState(0);
+  const [annualRate, setAnnualRate] = useState(0);
   const [years, setYears] = useState(0);
   const [frequency, setFrequency] = useState<
     'monthly' | 'quarterly' | 'annually' | 'maturity'
   >('maturity');
 
-  const handleClick = () => {};
+  const [finalAmount, setFinalAmount] = useState<number | null>(null);
+
+  const handleClick = () => {
+    const result = CalculateInterest({
+      principal,
+      annualRate,
+      years,
+      compounding: frequency,
+    });
+    setFinalAmount(result);
+  };
 
   return (
     <main className="pt-20 max-w-md mx-auto flex flex-col gap-4">
@@ -30,8 +41,8 @@ export default function Home() {
         Interest rate (%):
         <input
           type="number"
-          value={rate}
-          onChange={(e) => setRate(Number(e.target.value))}
+          value={annualRate}
+          onChange={(e) => setAnnualRate(Number(e.target.value))}
           className="border p-2 rounded-2xl shadow-md"
         />
       </label>
@@ -66,6 +77,8 @@ export default function Home() {
       >
         Calculate
       </button>
+
+      {finalAmount}
     </main>
   );
 }
