@@ -1,5 +1,10 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-export const preset = 'ts-jest';
-export const testEnvironment = 'node';
-export const moduleFileExtensions = ['ts', 'tsx', 'js'];
-export const testMatch = ['**/__tests__/**/*.test.ts'];
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testMatch: ['**/__tests__/**/*.test.ts', '**/?(*.)+(spec|test).ts?(x)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+};
