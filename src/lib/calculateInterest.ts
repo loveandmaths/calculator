@@ -8,5 +8,11 @@ interface CalculatorInput {
 }
 
 export function CalculateInterest(calculatorInput: CalculatorInput) {
-  return 10330;
+  var result =
+    calculatorInput.principal +
+    calculatorInput.principal *
+      (calculatorInput.annualRate / 100) *
+      calculatorInput.years;
+
+  return result;
 }
