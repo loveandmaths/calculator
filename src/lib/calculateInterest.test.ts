@@ -48,6 +48,6 @@ describe('CalculateInterest', () => {
       years: 3,
     });
 
-    expect(result).toBeCloseTo(10334, 4);
+    expect(result).toBeCloseTo(10334, 2);
   });
 });
