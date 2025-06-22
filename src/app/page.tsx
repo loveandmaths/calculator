@@ -10,9 +10,7 @@ export default function Home() {
   const [principal, setPrincipal] = useState(0);
   const [annualRate, setAnnualRate] = useState(0);
   const [years, setYears] = useState(0);
-  const [frequency, setFrequency] = useState<
-    'monthly' | 'quarterly' | 'annually' | 'maturity'
-  >('maturity');
+  const [frequency, setFrequency] = useState<CompoundingFrequency>('maturity');
 
   const [finalAmount, setFinalAmount] = useState<number | null>(null);
 
