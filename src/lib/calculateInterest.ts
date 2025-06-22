@@ -1,4 +1,8 @@
-type CompoundingFrequency = 'monthly' | 'quarterly' | 'annually' | 'maturity';
+export type CompoundingFrequency =
+  | 'monthly'
+  | 'quarterly'
+  | 'annually'
+  | 'maturity';
 
 interface CalculatorInput {
   annualRate: number;

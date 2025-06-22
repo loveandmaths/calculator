@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { CalculateInterest } from '@/lib/calculateInterest';
+import {
+  CalculateInterest,
+  CompoundingFrequency,
+} from '@/lib/calculateInterest';
 
 export default function Home() {
   const [principal, setPrincipal] = useState(0);
@@ -61,7 +64,7 @@ export default function Home() {
         Interest paid:
         <select
           value={frequency}
-          onChange={(e) => setFrequency(e.target.value as any)}
+          onChange={(e) => setFrequency(e.target.value as CompoundingFrequency)}
           className="border p-2 rounded-2xl shadow-md"
         >
           <option value="monthly">Monthly</option>
